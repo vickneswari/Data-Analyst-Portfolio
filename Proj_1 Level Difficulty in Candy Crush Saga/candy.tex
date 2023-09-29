@@ -1,0 +1,480 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R Notebook},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{R Notebook}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading in packages}
+
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The data set
+\end{enumerate}
+
+The dataset we will use contains one week of data from a sample of
+players who played Candy Crush back in 2014. The data is also from a
+single episode, that is, a set of 15 levels. It has the following
+columns:
+
+\begin{verbatim}
+player_id: a unique player id
+dt: the date
+level: the level number within the episode, from 1 to 15.
+num_attempts: number of level attempts for the player on that level and date.
+num_success: number of level attempts that resulted in a success/win for the player on that level and date.
+\end{verbatim}
+
+The granularity of the dataset is player, date, and level. That is,
+there is a row for every player, day, and level recording the total
+number of attempts and how many of those resulted in a win.
+
+Now, let's load in the dataset and take a look at the first couple of
+rows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reading in the data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"datasets/candy\_crush.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 16865 Columns: 5
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr  (1): player_id
+## dbl  (3): level, num_attempts, num_success
+## date (1): dt
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Printing out the first six rows}
+\FunctionTok{head}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   player_id                        dt         level num_attempts num_success
+##   <chr>                            <date>     <dbl>        <dbl>       <dbl>
+## 1 6dd5af4c7228fa353d505767143f5815 2014-01-04     4            3           1
+## 2 c7ec97c39349ab7e4d39b4f74062ec13 2014-01-01     8            4           1
+## 3 c7ec97c39349ab7e4d39b4f74062ec13 2014-01-05    12            6           0
+## 4 a32c5e9700ed356dc8dd5bb3230c5227 2014-01-03    11            1           1
+## 5 a32c5e9700ed356dc8dd5bb3230c5227 2014-01-07    15            6           0
+## 6 b94d403ac4edf639442f93eeffdc7d92 2014-01-01     8            8           1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Checking the data set
+\end{enumerate}
+
+Now that we have loaded the dataset let's count how many players we have
+in the sample and how many days worth of data we have.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Count and display the number of unique players}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Number of players:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Number of players:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{player\_id }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{unique}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{length}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6814
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the date range of the data}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Period for which we have data:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Period for which we have data:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{range}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{dt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2014-01-01" "2014-01-07"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Computing level difficulty
+\end{enumerate}
+
+Within each Candy Crush episode, there is a mix of easier and tougher
+levels. Luck and individual skill make the number of attempts required
+to pass a level different from player to player. The assumption is that
+difficult levels require more attempts on average than easier ones. That
+is, the harder a level is, the lower the probability to pass that level
+in a single attempt is.
+
+A simple approach to model this probability is as a Bernoulli process
+
+; as a binary outcome (you either win or lose) characterized by a single
+parameter pwin: the probability of winning the level in a single
+attempt. This probability can be estimated for each level as:
+
+For example, let's say a level has been played 10 times and 2 of those
+attempts ended up in a victory. Then the probability of winning in a
+single attempt would be pwin = 2 / 10 = 20\%.
+
+Now, let's compute the difficulty pwin separately for each of the 15
+levels.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculating level difficulty}
+\NormalTok{difficulty }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{group\_by}\NormalTok{(level) }\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{summarise}\NormalTok{(}\AttributeTok{attempts =} \FunctionTok{sum}\NormalTok{(num\_attempts), }\AttributeTok{wins =} \FunctionTok{sum}\NormalTok{(num\_success)) }\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{mutate}\NormalTok{(}\AttributeTok{p\_win =}\NormalTok{ wins }\SpecialCharTok{/}\NormalTok{ attempts)}
+
+\CommentTok{\# Printing out the level difficulty}
+\NormalTok{difficulty}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 15 x 4
+##    level attempts  wins  p_win
+##    <dbl>    <dbl> <dbl>  <dbl>
+##  1     1     1322   818 0.619 
+##  2     2     1285   666 0.518 
+##  3     3     1546   662 0.428 
+##  4     4     1893   705 0.372 
+##  5     5     6937   634 0.0914
+##  6     6     1591   668 0.420 
+##  7     7     4526   614 0.136 
+##  8     8    15816   641 0.0405
+##  9     9     8241   670 0.0813
+## 10    10     3282   617 0.188 
+## 11    11     5575   603 0.108 
+## 12    12     6868   659 0.0960
+## 13    13     1327   686 0.517 
+## 14    14     2772   777 0.280 
+## 15    15    30374  1157 0.0381
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Plotting difficulty profile
+\end{enumerate}
+
+Great! We now have the difficulty for all the 15 levels in the episode.
+Keep in mind that, as we measure difficulty as the probability to pass a
+level in a single attempt, a lower value (a smaller probability of
+winning the level) implies a higher level difficulty.
+
+Now that we have the difficulty of the episode we should plot it. Let's
+plot a line graph with the levels on the X-axis and the difficulty
+(pwin) on the Y-axis. We call this plot the difficulty profile of the
+episode.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting the level difficulty profile}
+\FunctionTok{ggplot}\NormalTok{(difficulty, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ level, }\AttributeTok{y =}\NormalTok{ p\_win)) }\SpecialCharTok{+}
+\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{candy_files/figure-latex/unnamed-chunk-5-1.pdf} 6.
+Spotting hard levels
+
+What constitutes a hard level is subjective. However, to keep things
+simple, we could define a threshold of difficulty, say 10\%, and label
+levels with pwin \textless{} 10\% as hard. It's relatively easy to spot
+these hard levels on the plot, but we can make the plot more friendly by
+explicitly highlighting the hard levels.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Adding points and a dashed line}
+\FunctionTok{ggplot}\NormalTok{(difficulty, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ level, }\AttributeTok{y =}\NormalTok{ p\_win)) }\SpecialCharTok{+}
+\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{label =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{percent) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{candy_files/figure-latex/unnamed-chunk-6-1.pdf} 7.
+Computing uncertainty
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Computing the standard error of p\_win for each level}
+\NormalTok{difficulty }\OtherTok{\textless{}{-}}\NormalTok{ difficulty }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(level) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{error =} \FunctionTok{sqrt}\NormalTok{(p\_win}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p\_win)}\SpecialCharTok{/}\NormalTok{attempts))}
+
+\NormalTok{difficulty}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 15 x 5
+## # Groups:   level [15]
+##    level attempts  wins  p_win   error
+##    <dbl>    <dbl> <dbl>  <dbl>   <dbl>
+##  1     1     1322   818 0.619  0.0134 
+##  2     2     1285   666 0.518  0.0139 
+##  3     3     1546   662 0.428  0.0126 
+##  4     4     1893   705 0.372  0.0111 
+##  5     5     6937   634 0.0914 0.00346
+##  6     6     1591   668 0.420  0.0124 
+##  7     7     4526   614 0.136  0.00509
+##  8     8    15816   641 0.0405 0.00157
+##  9     9     8241   670 0.0813 0.00301
+## 10    10     3282   617 0.188  0.00682
+## 11    11     5575   603 0.108  0.00416
+## 12    12     6868   659 0.0960 0.00355
+## 13    13     1327   686 0.517  0.0137 
+## 14    14     2772   777 0.280  0.00853
+## 15    15    30374  1157 0.0381 0.00110
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Showing uncertainty
+\end{enumerate}
+
+Now that we have a measure of uncertainty for each levels' difficulty
+estimate let's use error bars to show this uncertainty in the plot. We
+will set the length of the error bars to one standard error. The upper
+limit and the lower limit of each error bar should then be pwin + σerror
+and pwin - σerror, respectively.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Adding standard error bars}
+\FunctionTok{ggplot}\NormalTok{(difficulty, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ level, }\AttributeTok{y =}\NormalTok{ p\_win)) }\SpecialCharTok{+}
+\FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{label =}\NormalTok{ scales}\SpecialCharTok{::}\NormalTok{percent) }\SpecialCharTok{+}
+\FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ p\_win }\SpecialCharTok{{-}}\NormalTok{ error, }\AttributeTok{ymax =}\NormalTok{ p\_win }\SpecialCharTok{+}\NormalTok{ error))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{candy_files/figure-latex/unnamed-chunk-8-1.pdf} 9. A
+final metric
+
+It looks like our difficulty estimates are pretty precise! Using this
+plot, a level designer can quickly spot where the hard levels are and
+also see if there seems to be too many hard levels in the episode.
+
+One question a level designer might ask is: ``How likely is it that a
+player will complete the episode without losing a single time?'' Let's
+calculate this using the estimated level difficulties!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The probability of completing the episode without losing a single time}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{prod}\NormalTok{(difficulty}\SpecialCharTok{$}\NormalTok{p\_win)}
+
+\CommentTok{\# Printing it out}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9.447141e-12
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Should our level designer worry?
+\end{enumerate}
+
+Given the probability we just calculated, should our level designer
+worry about that a lot of players might complete the episode in one
+attempt?
+
+No, The probability p gets printed out using scientific notation. So a
+probability of 9.447-12 is the same as 0.000000000009447. That is, a
+really small probability.
+
+\end{document}
