@@ -1,4 +1,5 @@
-# candycrushsaga
+# Level Difficulty in Candy Crush Saga
+
 An R project finding the difficulty level of candy crush saga.
 
 Candy Crush Saga is a hit mobile game developed by King (part of Activision|Blizzard) that is played by millions of people all around the world. The game is structured as a series of levels where players need to match similar candy together to (hopefully) clear the level and keep progressing on the level map. 
